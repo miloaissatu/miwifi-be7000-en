@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MiWiFi BE7000 EN – options</title>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 8px; padding: 0 16px; }
+  textarea { width: 100%; height: 10em; font: 13px monospace; box-sizing: border-box; }
+  code { background: #8882; padding: 1px 4px; border-radius: 3px; }
+  #msg { margin-left: 12px; }
+</style>
+<h1>Host allowlist</h1>
+<p>The extension only translates pages that look like a MiWiFi router interface. Optionally restrict it further to specific hosts.
+One entry per line (or comma separated). <code>*</code> matches any characters. Default: <code>*</code> (any host).</p>
+<ul>
+  <li><code>192.168.31.1</code> – exactly this address</li>
+  <li><code>192.168.*</code> – any 192.168.x.x address</li>
+  <li><code>router.lan</code> – exactly this name</li>
+  <li><code>*.lan</code> – any name ending in .lan</li>
+  <li><code>192.168.31.1:8080</code> – include a port to match only that port</li>
+</ul>
+<textarea id="list" spellcheck="false"></textarea>
+<p><button id="save">Save</button><button id="reset">Reset to default</button><span id="msg"></span></p>
+<p>Reload open router pages after changing this.</p>
+<script src="allowlist.js"></script>
+<script src="options.js"></script>

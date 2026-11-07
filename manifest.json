@@ -1,0 +1,71 @@
+{
+  "manifest_version": 3,
+  "name": "MiWiFi BE7000 EN",
+  "version": "1.1.0",
+  "description": "Translates the Chinese Xiaomi/MiWiFi router web interface to English using a bundled offline dictionary. Detects the router page by content, so it works on any hostname.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "miwifi-translate@local",
+      "strict_min_version": "128.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/cgi-bin/luci/;stok=*/web/*",
+        "*://*/cgi-bin/luci/web/*",
+        "*://*/cgi-bin/luci/",
+        "*://*/cgi-bin/luci/?*",
+        "*://*/xiaoqiang/*",
+        "*://miwifi.com/*",
+        "*://*.miwifi.com/*"
+      ],
+      "js": [
+        "dict/ui.js",
+        "dict/msgs.js",
+        "dict/tz.js",
+        "dict/extra.js",
+        "dict/firmware.js",
+        "dict/firmware2.js",
+        "dict/fixes.js",
+        "allowlist.js",
+        "engine.js",
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://*/cgi-bin/luci/;stok=*/web/*",
+        "*://*/cgi-bin/luci/web/*",
+        "*://*/cgi-bin/luci/",
+        "*://*/cgi-bin/luci/?*",
+        "*://*/xiaoqiang/*",
+        "*://miwifi.com/*",
+        "*://*.miwifi.com/*"
+      ],
+      "js": [
+        "dict/ui.js",
+        "dict/msgs.js",
+        "dict/tz.js",
+        "dict/extra.js",
+        "dict/firmware.js",
+        "dict/firmware2.js",
+        "dict/fixes.js",
+        "engine.js",
+        "dialogs.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}
